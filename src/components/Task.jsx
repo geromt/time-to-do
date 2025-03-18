@@ -1,6 +1,6 @@
-export function Task ({ initTime, endTime, name, description }) {
+export function Task ({ initTime, endTime, name, description, onClickHandle }) {
   return (
-    <div>
+    <div role='task' onClick={onClickHandle}>
       <p role='interval'>{`${initTime}-${endTime}`}</p>
       <p role='name'>{name}</p>
       <p role='description'>{description}</p>
