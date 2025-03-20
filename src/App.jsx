@@ -1,28 +1,26 @@
 import './App.css'
+import { useState } from 'react'
 import { TaskContainer } from './components/TaskContainer'
+import { InsertForm } from './components/InsertForm'
 
-function App () {
-  const tasks = [{
-    initTime: 7,
-    endTime: 8,
-    name: 'Taks 1',
-    description: 'Description 1'
-  },
-  {
-    initTime: 8,
-    endTime: 9,
-    name: 'Taks 2',
-    description: 'Description 2'
-  },
-  {
-    initTime: 9,
-    endTime: 10,
-    name: 'Taks 3',
-    description: 'Description 3'
-  }]
+export function App () {
+  const [taskList, setTaskList] = useState([])
+
+  const handleAddTask = (formData) => {
+    const initTime = formData.get('initTime')
+    const endTime = formData.get('endTime')
+    const name = formData.get('name')
+    const description = formData.get('description')
+
+    const newTaskList = [...taskList]
+    newTaskList.push({ initTime, endTime, name, description })
+    setTaskList(newTaskList)
+  }
+
   return (
     <>
-      <TaskContainer day={Date.now()} tasks={tasks} />
+      <InsertForm handleAdd={handleAddTask} />
+      <TaskContainer day={Date.now()} taskList={taskList} setTaskList={setTaskList} />
     </>
   )
 }
