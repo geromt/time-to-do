@@ -19,7 +19,7 @@ export function App () {
 
   return (
     <div className='w-full h-screen flex flex-col items-center justify-center'>
-      <h1 className='font-bold text-amber-950 font-mono text-6xl md:text-8xl lg:text-9xl'>Time To-Do</h1>
+      <h1 className='font-bold text-amber-950 font-mono text-6xl md:text-8xl lg:text-9xl my-8'>Time To-Do</h1>
       <InsertForm handleAdd={handleAddTask} />
       <TaskContainer day={Date.now()} taskList={taskList} setTaskList={setTaskList} />
     </div>
